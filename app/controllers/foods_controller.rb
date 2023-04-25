@@ -1,5 +1,4 @@
 class FoodsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_food, only: %i[show edit update destroy]
 
   # GET /foods or /foods.json
@@ -13,6 +12,7 @@ class FoodsController < ApplicationController
   # GET /foods/new
   def new
     @food = Food.new
+    @food.user = current_user
   end
 
   # GET /foods/1/edit
@@ -65,6 +65,7 @@ class FoodsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
+      .merge(user_id: current_user.id)
   end
 end
