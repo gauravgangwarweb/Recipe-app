@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   
   # define route for public_recipes
   get "/public_recipes", to: "recipes#public", as: "public_recipes"
+  
+  # define route for shooping_list
+  get "/shooping_list", to: "foods#shooping_list", as: "shooping_list"
 end
