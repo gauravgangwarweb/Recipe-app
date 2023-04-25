@@ -16,3 +16,39 @@
 .box-shadow {
   box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
 }
+
+table {
+  display: block;
+  margin: 5vh 0;
+}
+
+th {
+  background-color: #d0d0d0;
+}
+
+td,
+th {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  width: 18vw;
+}
+
+.border {
+  border: 1px solid #000;
+}
+
+#foods {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.primary {
+  background-color: #d0d0d0;
+  color: #000;
+}
+
+.left {
+  align-self: end;
+  margin: 0 4vw;
+}
