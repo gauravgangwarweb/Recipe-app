@@ -1,0 +1,17 @@
+<header class="text-gray-600 body-font pr-7 box-shadow">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <span class="ml-3 text-xl text-blue-500 text-[30px] font-bold">Recipe App</span>
+    </a>
+    <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+    <% if user_signed_in?%>
+        <%= link_to "Recipes" , recipes_path, class: "mr-5 hover:text-gray-900 no-underline py-1 px-2 bg-blue-500 text-white rounded-[10px]" %>
+        <%= link_to "Shopping list", '/shopping_list', class: "mr-5 hover:text-gray-900 no-underline py-1 px-2 bg-blue-500 text-white rounded-[10px]" %>
+    <%end%>
+    </nav>
+    <%if user_signed_in?%>
+        <p class="nav-item nav-link">Welcome <%= current_user.name.capitalize %>!</p>
+    <%end%>
+    <%= button_to "Log Out" , destroy_user_session_path, method: :delete, class: "inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" %>
+  </div>
+</header>
