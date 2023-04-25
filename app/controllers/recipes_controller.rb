@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # Public action that does not require authentication
-  skip_before_action :authenticate_user!, only: [:public_action]
+  skip_before_action :authenticate_user!, only: [:public]
 
   # GET /recipes or /recipes.json
   def index
@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
   def public
     @recipes = Recipe.where(public: true)
     @recipe_foods = RecipeFood.includes(:food).all
-    @total_items = @recipe_foods.sum(&:quantity)
+    @total_items = @recipe_foods.count
     @total_price = 0
     @recipe_foods.each do |recipe_food|
       @total_price += recipe_food.food.price * recipe_food.quantity
