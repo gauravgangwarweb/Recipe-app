@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="foods">
+  <h1 class="text-center me-6"> Shooping List </h1>
+
+  <h3 class="text-center me-6"> Amount of items to buy: <%= @foods.count %>,    Total Value needed: $<%= @foods.sum(:price)%> </h3>
+
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+
+    <% @foods.each do |food| %>
+      <tr id="<%= dom_id(food) %>">
+        <td><%= food.name %></td>
+        <td><%= food.quantity %> <%= food.measurement_unit %></td>
+        <td>$<%= food.price %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
