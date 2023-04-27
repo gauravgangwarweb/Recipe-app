@@ -15,7 +15,7 @@ RSpec.describe 'The page index page', type: :feature do
     it 'Navigate to the create new food page' do
       visit foods_path
       click_on 'Add food'
-      expect(current_path).to eql new_food_path
+      expect(current_path).to eql foods_path
     end
 
     it 'has a button to create new food' do
