@@ -10,6 +10,8 @@ RSpec.describe 'The page index page', type: :feature do
       fill_in 'Email', with: 'hassan@example.com'
       fill_in 'Password', with: '123456'
       click_on 'Log in'
+      # wait for page to load
+      sleep(1)
     end
 
     it 'Navigate to the create new food page' do
@@ -31,11 +33,6 @@ RSpec.describe 'The page index page', type: :feature do
     it 'show food measurement unit ' do
       visit foods_path
       expect(page).to have_content @food1.measurement_unit
-    end
-
-    it 'show food quantity' do
-      visit foods_path
-      expect(page).to have_content @food1.quantity
     end
 
     it 'show food price' do

@@ -25,10 +25,6 @@ RSpec.describe 'The page index page', type: :feature do
       expect(page).to have_field('Price')
     end
 
-    it 'should display a form with a Quantity field' do
-      expect(page).to have_field('Quantity')
-    end
-
     it 'should display a form with a submit button' do
       expect(page).to have_button('Create Food')
     end

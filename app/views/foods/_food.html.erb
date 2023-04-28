@@ -3,7 +3,6 @@
   <td><%= food.name %></td>
   <td><%= food.measurement_unit %></td>
   <td>$<%= food.price %></td>
-  <td><%= food.quantity %></td>
-  <td><%= food.user_id %></td>
+  <td><%= link_to "Delete", food, method: :delete, data: { confirm: "Are you sure?" }, class: "border left" %></td>
 </tr>
 

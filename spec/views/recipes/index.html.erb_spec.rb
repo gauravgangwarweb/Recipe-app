@@ -15,7 +15,8 @@ RSpec.describe 'recipes/index', type: :feature do
 
   it 'click on new recipe' do
     click_on 'Add new recipe'
-    expect(current_path).to eql recipes_path
+    sleep 1
+    expect(current_path).to eql '/recipes/new'
   end
 
   it 'click on recipe' do

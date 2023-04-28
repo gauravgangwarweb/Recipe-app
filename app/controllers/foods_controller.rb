@@ -11,7 +11,9 @@ class FoodsController < ApplicationController
   def show; end
 
   def shooping_list
-    @foods = Food.all.where(user: current_user)
+    @recipe = Recipe.where(user: @user)
+    @foods = Food.all.where(user: current_user, recipe_id: @recipe.ids)
+
     render :shooping_list
   end
 
